@@ -1,5 +1,5 @@
 const Manager = require("../lib/Manager");
-// set the role to manager
+
 describe("Manager", () => {
   describe("getRole", () => {
     it("should set the role of the employee to manager", () => {
@@ -17,7 +17,7 @@ describe("Manager", () => {
   });
 
 
-  // get the name of the manager
+
   describe("getName", () => {
     it("should show the name attached to this specific manager", () => {
       const manager = new Manager("Noel", "id", "email", "officeNumber");
@@ -26,7 +26,7 @@ describe("Manager", () => {
   });
 
 
-  // get the id of the manager
+  
   describe("getId", () => {
     it("should show the id attached to this specific employee", () => {
       const manager = new Manager("name", "56789", "email", "officeNumber");
