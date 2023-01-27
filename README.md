@@ -25,6 +25,9 @@
   ## Usage
   node index.js in the terminal
   
+  VIDEO LINK:
+  https://drive.google.com/file/d/1yLEBng6GCOB2zNv9XgLV_WS3-5kqhRUA/view
+  
   
   ## Contributions
   None
