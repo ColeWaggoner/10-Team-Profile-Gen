@@ -1,64 +1,49 @@
-function managerCard(data) {
-  const card =  `
-      <div class="card employee-card border-primary">
-      <div class="card-header bg-primary-subtle">${data.name}</div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Role: Manager</li>
-        <li class="list-group-item">ID: ${data.id}</li>
-        <li class="list-group-item">Email: ${data.email}</li>
-        <li class="list-group-item">Office #: ${data.office}</li>
-      </ul>
-    </div>
-      `;
-      return card;
-}
-
-
-function engineerCard(data) {
-  return `
-        <div class="card employee-card border-primary">
-        <div class="card-header bg-primary-subtle">${data.name}</div>
+function makeCards(data) {
+  let cardList = ``;
+  let i = 0
+  for (i; i < data.length; i++) {
+    console.log(data[i].role)
+    if (data[i].role === "Manager") {
+      cardList += `
+        <div class="card employee-card border-primary m-3">
+        <div class="card-header bg-primary-subtle">${data[i].name}</div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Role: Manager</li>
+          <li class="list-group-item">ID: ${data[i].id}</li>
+          <li class="list-group-item">Email: ${data[i].email}</li>
+          <li class="list-group-item">Office #: ${data[i].office}</li>
+        </ul>
+      </div>
+        `;
+    }
+    else if (data[i].role === "Engineer") {
+      cardList += `
+        <div class="card employee-card border-primary m-3">
+        <div class="card-header bg-primary-subtle">${data[i].name}</div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">Role: Engineer</li>
-          <li class="list-group-item">ID: ${data.id}</li>
-          <li class="list-group-item">Email: ${data.email}</li>
-          <li class="list-group-item">GitHub: ${data.github}</li>
+          <li class="list-group-item">ID: ${data[i].id}</li>
+          <li class="list-group-item">Email: ${data[i].email}</li>
+          <li class="list-group-item">GitHub: ${data[i].github}</li>
         </ul>
       </div>
         `;
-}
-
-
-function internCard(data) {
-  return `
-        <div class="card employee-card border-primary">
-        <div class="card-header bg-primary-subtle">${data.name}</div>
+    }
+    else if (data[i].role === "Intern") {
+      cardList += `
+        <div class="card employee-card border-primary m-3">
+        <div class="card-header bg-primary-subtle">${data[i].name}</div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">Role: Intern</li>
-          <li class="list-group-item">ID: ${data.id}</li>
-          <li class="list-group-item">Email: ${data.email}</li>
-          <li class="list-group-item">School: ${data.school}</li>
+          <li class="list-group-item">ID: ${data[i].id}</li>
+          <li class="list-group-item">Email: ${data[i].email}</li>
+          <li class="list-group-item">School: ${data[i].school}</li>
         </ul>
       </div>
         `;
-}
-
-
-function makeCards(data) {
-  for (let i = 0; i < data.length - 1; i++) {
-    const choice = data[i].getRole();
-    const info = data[i]
-    if (choice === "Manager") {
-      console.log(info)
-      managerCard(info);
-    }
-    if (choice === "Engineer") {
-      engineerCard(data[i]);
-    }
-    if (choice === "Intern") {
-      internCard(data[i]);
     }
   }
+  return cardList;
 }
 
 function pageGenerate(team) {
